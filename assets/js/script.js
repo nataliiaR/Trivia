@@ -1,42 +1,37 @@
 
 var dataFile = JSON.stringify(jSONObj);
 var obj=JSON.parse(dataFile);
-guessed=0;
+var selected=0;
 var wins=0;
 var losses=0;
 
-i=1;
+i=0;
 createQuestionSection(obj[i]);
 
 
-$(".answerOption").on("click", function(event){
-    if(guessed===0){
-        selectedOption=$(this);
-        verifyTheAnswer(selectedOption,obj[i].correct_answer);
-        clearInterval(intervalId);
-    }
-
-});
-
-
-
-function createQuestionSection(object){
-    var answers=object.answers;
-    time = object.timeInSeconds;
+function createQuestionSection(question){
+    var answers=question.answers;
+    time = question.timeInSeconds;
     intervalId = setInterval(count, 1000);
-    $(".question").html('<h2>'+object.question+'</h2');
+    $(".question").html('<h2>'+question.question+'</h2>');
     for(let i=0; i<answers.length; i++){
-    $(".answers").append('<div class="col-12 answerOption">'+answers[i]+'</div');
+      $(".answers").append('<div class="col-12 answerOption">'+answers[i]+'</div>');
     }
-
+    $(".answerOption").on("click", function(){
+      console.log("selected "+ selected);
+      if(selected===0){
+          selectedOption=$(this);
+          verifyTheAnswer(selectedOption, question.correct_answer);
+          clearInterval(intervalId);
+      }
+    
+    });
 }
+
 function count(){
      if (time>0){
-        // DONE: increment time by 1, remember we cant use "this" here.
+
         time--;
-      
-        // DONE: Get the current time, pass that into the timeConverter function,
-        //       and save the result in a variable.
         var converted = timeConverter(time);
       
         // DONE: Use the variable we just created to show the converted time in the "display" div.
@@ -47,9 +42,9 @@ function count(){
         showCorrectAnswer(obj[i].correct_answer);
         losses++;
         $("#losses").html("Losses "+ losses);
-
         setTimeout(resetAll, 5000);
         clearInterval(intervalId);
+ 
      }
  
 }
@@ -80,21 +75,25 @@ function verifyTheAnswer(selectedOption, correct_answer){
     console.log("correct_answer " + correct_answer);
     if(selectedOption.text()==correct_answer){
         $(selectedOption).css({"backgroundColor":"green"});
-        guessed= 1;
+        selected= 1;
         wins++;
         $("#wins").html("Wins " + wins);
-        setTimeout(resetAll, 5000);
+        clearInterval(intervalId);
+        console.log("selected "+ selected);
       
     }
     else{
         $(selectedOption).css({"backgroundColor":"red"});
-        guessed =-1;
+        selected =1;
         showCorrectAnswer(correct_answer);
         losses++;
         $("#losses").html("Losses " +losses);
-        setTimeout(resetAll, 5000);
+        clearInterval(intervalId);
+        console.log("selected "+ selected);
       
     }
+
+    setTimeout(resetAll, 5000);
 
 
 }
@@ -105,11 +104,17 @@ function showCorrectAnswer(object_correct_answer){
 }
 
 function resetAll(){
-
+  selected=0;
   $(".answers").empty();
   $(".question").empty();
   $("#display").empty();
-
+  clearInterval(intervalId);
+  if(i<obj.length){
+    i++;
+  }
+  createQuestionSection(obj[i]);
 }
-//createQuestionSection(obj[1]);
+
+console.log("selected "+ selected);
+
 
