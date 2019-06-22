@@ -5,7 +5,7 @@ guessed=0;
 var wins=0;
 var losses=0;
 
-i=0;
+i=1;
 createQuestionSection(obj[i]);
 
 
@@ -22,7 +22,7 @@ $(".answerOption").on("click", function(event){
 
 function createQuestionSection(object){
     var answers=object.answers;
-    time = object.timeInMiliSeconds;
+    time = object.timeInSeconds;
     intervalId = setInterval(count, 1000);
     $(".question").html('<h2>'+object.question+'</h2');
     for(let i=0; i<answers.length; i++){
@@ -47,6 +47,8 @@ function count(){
         showCorrectAnswer(obj[i].correct_answer);
         losses++;
         $("#losses").html("Losses "+ losses);
+
+        setTimeout(resetAll, 5000);
         clearInterval(intervalId);
      }
  
@@ -81,6 +83,7 @@ function verifyTheAnswer(selectedOption, correct_answer){
         guessed= 1;
         wins++;
         $("#wins").html("Wins " + wins);
+        setTimeout(resetAll, 5000);
       
     }
     else{
@@ -89,6 +92,7 @@ function verifyTheAnswer(selectedOption, correct_answer){
         showCorrectAnswer(correct_answer);
         losses++;
         $("#losses").html("Losses " +losses);
+        setTimeout(resetAll, 5000);
       
     }
 
@@ -100,4 +104,12 @@ function showCorrectAnswer(object_correct_answer){
 
 }
 
+function resetAll(){
+
+  $(".answers").empty();
+  $(".question").empty();
+  $("#display").empty();
+
+}
+//createQuestionSection(obj[1]);
 
