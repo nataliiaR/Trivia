@@ -44,7 +44,7 @@ function count(){
         
      }  
      else{
-        showCorrectAnswer(obj[0].correct_answer);
+        showCorrectAnswer(obj[i].correct_answer);
         losses++;
         $("#losses").html("Losses "+ losses);
         clearInterval(intervalId);
