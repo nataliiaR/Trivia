@@ -1,0 +1,13 @@
+jSONObj = [{
+    "question":"question 1",
+    "answers":["answer1", "answer2","answer3","answer4"],
+    "correct_answer":"answer3",
+    "timeInSeconds":30
+},
+{
+    "question":"question 2",
+    "answers":["answer1", "answer2","answer3","answer4"],
+    "correct_answer":"answer2",
+    "timeInSeconds":20
+}
+];
