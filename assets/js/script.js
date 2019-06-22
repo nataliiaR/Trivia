@@ -4,14 +4,28 @@ var obj=JSON.parse(dataFile);
 guessed=0;
 var wins=0;
 var losses=0;
-//var time = obj[0].timeInMiliSeconds;
+
+i=0;
+createQuestionSection(obj[i]);
+
+
+$(".answerOption").on("click", function(event){
+    if(guessed===0){
+        selectedOption=$(this);
+        verifyTheAnswer(selectedOption,obj[i].correct_answer);
+        clearInterval(intervalId);
+    }
+
+});
+
+
 
 function createQuestionSection(object){
     var answers=object.answers;
-    time = obj[0].timeInMiliSeconds;
+    time = object.timeInMiliSeconds;
     intervalId = setInterval(count, 1000);
     $(".question").html('<h2>'+object.question+'</h2');
-    for(var i=0; i<answers.length; i++){
+    for(let i=0; i<answers.length; i++){
     $(".answers").append('<div class="col-12 answerOption">'+answers[i]+'</div');
     }
 
@@ -56,20 +70,6 @@ function timeConverter(t) {
   
     return minutes + ":" + seconds;
   }
-createQuestionSection(obj[0]);
-//console.log(dataFile.data[0].correct);
-
-console.log("data " + dataFile);
-console.log("obj " + obj[0].correct_answer);
-
-$(".answerOption").on("click", function(event){
-    if(guessed===0){
-        selectedOption=$(this);
-        verifyTheAnswer(selectedOption,obj[0].correct_answer);
-        clearInterval(intervalId);
-    }
-
-});
 
 
 function verifyTheAnswer(selectedOption, correct_answer){
