@@ -20,7 +20,7 @@ function getQuestion(){
   var j = Math.floor((Math.random() * obj.length));
   var currQuestion = obj[j];
   console.log(j);
-  obj.splice(j);
+  obj.splice(j,1);
   console.log ("obj array length "+obj.length);
   return currQuestion;
 
@@ -134,11 +134,12 @@ function resetAll(){
   $("#display").empty();
   clearInterval(intervalId);
   i++;
-  if(i<=10){
+  if(i<10){
     el=getQuestion();
+    createQuestionSection(el);
   }
 
-  createQuestionSection(el);
+
 }
 
 console.log("selected "+ selected);
