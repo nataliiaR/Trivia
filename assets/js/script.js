@@ -11,13 +11,25 @@ var j;
 
 
 
-function getElement(){
-  var number = Math.floor((Math.random() * obj.length));
-  return number;
-  console.log(number);
+function getQuestion(){
+
+  console.log ("obj j "+obj[j]);
+
+  console.log ("obj "+obj);
+  console.log ("obj array length "+obj.length);
+  var j = Math.floor((Math.random() * obj.length));
+  var currQuestion = obj[j];
+  console.log(j);
+  obj.splice(j);
+  console.log ("obj array length "+obj.length);
+  return currQuestion;
+
 }
-j =getElement();
-createQuestionSection(obj[j]);
+el =getQuestion();
+
+
+createQuestionSection(el);
+
 
 
 function createQuestionSection(question){
@@ -50,7 +62,7 @@ function count(){
         
      }  
      else{
-        showCorrectAnswer(obj[j].correct_answer);
+        showCorrectAnswer(el.correct_answer);
         losses++;
         $("#losses").html("Losses "+ losses);
         setTimeout(resetAll, 5000);
@@ -115,15 +127,20 @@ function showCorrectAnswer(object_correct_answer){
 }
 
 function resetAll(){
+  
+  delete obj[j];
+
   selected=0;
   $(".answers").empty();
   $(".question").empty();
   $("#display").empty();
   clearInterval(intervalId);
+  i++;
   if(i<=10){
-    j=getElement();
+    el=getQuestion();
   }
-  createQuestionSection(obj[j]);
+
+  createQuestionSection(el);
 }
 
 console.log("selected "+ selected);
