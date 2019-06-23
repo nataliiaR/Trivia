@@ -128,8 +128,6 @@ function showCorrectAnswer(object_correct_answer){
 
 function resetAll(){
   
-  delete obj[j];
-
   selected=0;
   $(".answers").empty();
   $(".question").empty();
