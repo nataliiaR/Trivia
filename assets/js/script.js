@@ -4,9 +4,20 @@ var obj=JSON.parse(dataFile);
 var selected=0;
 var wins=0;
 var losses=0;
+const maxQuestions=10;
 
 i=0;
-createQuestionSection(obj[i]);
+var j;
+
+
+
+function getElement(){
+  var number = Math.floor((Math.random() * obj.length));
+  return number;
+  console.log(number);
+}
+j =getElement();
+createQuestionSection(obj[j]);
 
 
 function createQuestionSection(question){
@@ -39,7 +50,7 @@ function count(){
         
      }  
      else{
-        showCorrectAnswer(obj[i].correct_answer);
+        showCorrectAnswer(obj[j].correct_answer);
         losses++;
         $("#losses").html("Losses "+ losses);
         setTimeout(resetAll, 5000);
@@ -109,12 +120,11 @@ function resetAll(){
   $(".question").empty();
   $("#display").empty();
   clearInterval(intervalId);
-  if(i<obj.length){
-    i++;
+  if(i<=10){
+    j=getElement();
   }
-  createQuestionSection(obj[i]);
+  createQuestionSection(obj[j]);
 }
 
 console.log("selected "+ selected);
-
 
