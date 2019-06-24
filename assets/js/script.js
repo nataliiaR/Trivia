@@ -5,43 +5,31 @@ var selected=0;
 var wins=0;
 var losses=0;
 const maxQuestions=10;
-
-i=0;
-var j;
+var questionCount=0;
 
 
+createQuestionSection(getQuestion());
 
 function getQuestion(){
 
-  console.log ("obj j "+obj[j]);
-
-  console.log ("obj "+obj);
-  console.log ("obj array length "+obj.length);
   var j = Math.floor((Math.random() * obj.length));
   var currQuestion = obj[j];
-  console.log(j);
   obj.splice(j,1);
-  console.log ("obj array length "+obj.length);
   return currQuestion;
 
 }
-el =getQuestion();
-
-
-createQuestionSection(el);
-
-
 
 function createQuestionSection(question){
     var answers=question.answers;
     time = question.timeInSeconds;
-    intervalId = setInterval(count, 1000);
+    intervalId = setInterval( function() {
+      count (question)},
+      1000);
     $(".question").html('<h2>'+question.question+'</h2>');
     for(let i=0; i<answers.length; i++){
-      $(".answers").append('<div class="col-sm-12 col-md-6 col-lg-6 answerOption"><p class="answer">'+answers[i]+'</p></div>');
+      $(".answers").append('<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 answerOption"><p class="answer">'+answers[i]+'</p></div>');
     }
     $(".answer").on("click", function(){
-      console.log("selected "+ selected);
       if(selected===0){
           selectedOption=$(this);
           verifyTheAnswer(selectedOption, question.correct_answer);
@@ -51,18 +39,16 @@ function createQuestionSection(question){
     });
 }
 
-function count(){
+function count(question){
      if (time>0){
 
         time--;
         var converted = timeConverter(time);
-      
-        // DONE: Use the variable we just created to show the converted time in the "display" div.
         $("#display").text("TIME LEFT: " + converted);
         
      }  
      else{
-        setTimeout(showCorrectAnswer(el.correct_answer), 2000);
+        setTimeout(showCorrectAnswer(question.correct_answer), 2000);
         losses++;
         $("#losses").html("Losses: "+ losses);
         setTimeout(resetAll, 5000);
@@ -94,15 +80,12 @@ function timeConverter(t) {
 
 function verifyTheAnswer(selectedOption, correct_answer){
 
-    console.log ("selected option "+ selectedOption);
-    console.log("correct_answer " + correct_answer);
     if(selectedOption.text()==correct_answer){
         $(selectedOption).addClass("blink_me").css({"backgroundColor":"green"});
         selected= 1;
         wins++;
         $("#wins").html("Wins: " + wins);
         clearInterval(intervalId);
-        console.log("selected "+ selected);
       
     }
     else{
@@ -112,7 +95,7 @@ function verifyTheAnswer(selectedOption, correct_answer){
         losses++;
         $("#losses").html("Losses: " +losses);
         clearInterval(intervalId);
-        console.log("selected "+ selected);
+
       
     }
 
@@ -133,18 +116,21 @@ function resetAll(){
   $(".question").empty();
   $("#display").text("TIME LEFT ...");
   clearInterval(intervalId);
-  i++;
-  if(i<10){
-    el=getQuestion();
-    createQuestionSection(el);
+  questionCount++;
+  if(questionCount<maxQuestions){
+    var question =getQuestion();
+    createQuestionSection(question);
   }
   else{
     $("#display").empty();
+    if(wins===10){
+      $(".question").text("FLAWLESS VICTORY!").css({"color":"green","font-family":"serif","font-weight":"bold","text-align":"center"});
+  
+    } else{
     $(".question").text("GAME IS OVER!").css({"color":"#6495AB","font-family":"serif","font-weight":"bold","text-align":"center"});
   }
-
+  }
 
 }
 
-console.log("selected "+ selected);
 

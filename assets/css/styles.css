@@ -6,20 +6,22 @@
 }
 
 .container{
-    width: 80em;
+    width: 100%;
     background-color: #D5D3D1;
     border-radius: 2em;
     margin: auto;
     padding-bottom: 1em;
+
 }
 body{
     background-image: url('../background.jpg');
 }
 
 header{
-    width: 50em;
+    background-position: center;
+    width: 100%;
     background-image: url('../quiz.png');
-    background-size: auto;
+    background-size: 50%;
     background-repeat: no-repeat;
     height: 15em;
     margin:auto;
@@ -39,6 +41,7 @@ header{
         background-color:  #6495AB;
         border-radius: 2em;
         color: white;
+        width: 90%;
 
 }
 #display{
@@ -53,7 +56,7 @@ header{
 
 #results{
     background-color: #D5D3D1;
-    width: 70em;
+    width: 80%;
     margin: 1em auto;
     border-radius: 2em;
 
