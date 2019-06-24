@@ -12,6 +12,7 @@ $("section").hide();
 $("#start").on('click', function(){
   $("section").show();
   $("#startDiv").hide();
+  $("#start").hide();
   createQuestionSection(getQuestion());
 });
 
