@@ -24,7 +24,7 @@ header{
     background-size: 50%;
     background-repeat: no-repeat;
     height: 15em;
-    margin:auto;
+    margin:1em auto 0em auto;
 }
 
 .question{
@@ -55,7 +55,7 @@ header{
     text-align: center;
     font-family: sans-serif;
     font-weight: bold;
-    color: white;
+    color: rgb(248, 245, 242);
     font-size: 2em;
     padding-bottom: 0.5em ;
     text-shadow: 1px #BAB9B8;

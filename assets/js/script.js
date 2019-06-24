@@ -51,7 +51,7 @@ function count(question){
   if (time > 0){
     time -- ;
     var converted = timeConverter(time);
-    $("#display").text("TIME REMAINING: " + converted);
+    $("#display").text("TIME REMAINING - " + converted);
     
   } else{
     $("#display").text("TIME'S UP!");
