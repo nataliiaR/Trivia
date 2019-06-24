@@ -36,8 +36,8 @@ header{
 .questionNumber{
     font-family: 'Raleway', sans-serif;
     font-size: 2em;
-    padding: 0.5em;
-    text-align: right;
+    padding: 0.5em 0em;
+    text-align: center;
 }
 .answer{
         font-family: 'Raleway', sans-serif;
@@ -87,3 +87,10 @@ header{
   @keyframes blinker {  
     50% { opacity: 0; }
   }
+
+#restart{
+    background-color:  #6495AB;
+    border-radius: 2em;
+    color: white;
+    text-align: center;
+}

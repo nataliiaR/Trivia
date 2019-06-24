@@ -44,10 +44,11 @@ function count(question){
   if (time > 0){
     time -- ;
     var converted = timeConverter(time);
-    $("#display").text("TIME LEFT: " + converted);
+    $("#display").text("TIME REMAINING: " + converted);
     
   } else{
-    setTimeout(showCorrectAnswer(question.correct_answer), 2000);
+    $("#display").text("TIME'S UP!");
+    showCorrectAnswer(question.correct_answer), 2000;
     losses ++ ;
     $("#losses").html("Losses: " + losses);
     setTimeout(resetAll, 3000);
@@ -107,7 +108,7 @@ function resetAll(){
   selected = 0;
   $(".answers").empty();
   $(".question").empty();
-  $("#display").text("TIME LEFT ...");
+  $("#display").text("TIME REMAINING ...");
   clearInterval(intervalId);
   questionCount ++ ;
   if(questionCount <= maxQuestions){
@@ -121,8 +122,24 @@ function resetAll(){
     } else{
       $(".question").text("GAME IS OVER!").css({"color":"#6495AB","font-family":"serif","font-weight":"bold","text-align":"center"});
     }
+    $(".answers").append("<button id='restart'> START AGAIN </button>");
+    $("#restart").on('click', function(){
+      restartGame();
+    });
+
   }
+
 
 }
 
+function restartGame(){
+  $("#display").html("TIME REMAINING ...");
+  questionCount = 1;
+  wins = 0;
+  losses = 0;
+  $("#restart").hide();
+  $("#losses").html("Losses: " + losses);
+  $("#wins").html("Wins: " + wins);
+  createQuestionSection(getQuestion());
+}
 
