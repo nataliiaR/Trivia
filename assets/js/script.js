@@ -38,9 +38,9 @@ function createQuestionSection(question){
     intervalId = setInterval(count, 1000);
     $(".question").html('<h2>'+question.question+'</h2>');
     for(let i=0; i<answers.length; i++){
-      $(".answers").append('<div class="col-12 answerOption">'+answers[i]+'</div>');
+      $(".answers").append('<div class="col-sm-12 col-md-6 col-lg-6 answerOption"><p class="answer">'+answers[i]+'</p></div>');
     }
-    $(".answerOption").on("click", function(){
+    $(".answer").on("click", function(){
       console.log("selected "+ selected);
       if(selected===0){
           selectedOption=$(this);
@@ -58,11 +58,11 @@ function count(){
         var converted = timeConverter(time);
       
         // DONE: Use the variable we just created to show the converted time in the "display" div.
-        $("#display").text(converted);
+        $("#display").text("TIME LEFT: " + converted);
         
      }  
      else{
-        showCorrectAnswer(el.correct_answer);
+        setTimeout(showCorrectAnswer(el.correct_answer), 2000);
         losses++;
         $("#losses").html("Losses "+ losses);
         setTimeout(resetAll, 5000);
@@ -108,7 +108,7 @@ function verifyTheAnswer(selectedOption, correct_answer){
     else{
         $(selectedOption).css({"backgroundColor":"red"});
         selected =1;
-        showCorrectAnswer(correct_answer);
+        setTimeout(showCorrectAnswer(correct_answer),2000);
         losses++;
         $("#losses").html("Losses " +losses);
         clearInterval(intervalId);
@@ -122,7 +122,7 @@ function verifyTheAnswer(selectedOption, correct_answer){
 }
 
 function showCorrectAnswer(object_correct_answer){
-    $(".answerOption:contains("+object_correct_answer+")").css({"backgroundColor":"green"});
+    $(".answer:contains("+object_correct_answer+")").css({"backgroundColor":"green"});
 
 }
 
@@ -131,7 +131,7 @@ function resetAll(){
   selected=0;
   $(".answers").empty();
   $(".question").empty();
-  $("#display").empty();
+  $("#display").text("TIME LEFT ...");
   clearInterval(intervalId);
   i++;
   if(i<10){

@@ -4,3 +4,50 @@
 .green{
     color:green;
 }
+
+.container{
+    width: 80em;
+    background-color: #D5D3D1;
+  border-radius: 2em;
+    margin: auto;
+    padding-bottom: 1em;
+}
+body{
+    background-image: url('../background.jpg');
+}
+
+header{
+    width: 50em;
+    background-image: url('../quiz.png');
+    background-size: auto;
+    background-repeat: no-repeat;
+    height: 15em;
+    margin:auto;
+}
+
+.question{
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 3em;
+    padding: 0.5em;
+
+}
+.answer{
+        font-family: 'Raleway', sans-serif;
+        padding:0.5em 1em;
+        margin:0.5em 0em;
+        font-size: 1.3em;
+        background-color:  #6495AB;
+        border-radius: 2em;
+        color: white;
+
+}
+#display{
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #D5D3D1;
+    font-size: 2em;
+    padding-bottom: 0.5em ;
+    text-shadow: 1px #BAB9B8;
+}
