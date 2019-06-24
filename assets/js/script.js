@@ -134,6 +134,7 @@ function resetAll(){
 
 function restartGame(){
   $("#display").html("TIME REMAINING ...");
+  $(".question").css({"font-family": "'Raleway', sans-serif", "font-weight":"normal","color":"black","text-align":"left"});
   questionCount = 1;
   wins = 0;
   losses = 0;
