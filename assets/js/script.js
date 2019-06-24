@@ -64,7 +64,7 @@ function count(){
      else{
         setTimeout(showCorrectAnswer(el.correct_answer), 2000);
         losses++;
-        $("#losses").html("Losses "+ losses);
+        $("#losses").html("Losses: "+ losses);
         setTimeout(resetAll, 5000);
         clearInterval(intervalId);
  
@@ -97,10 +97,10 @@ function verifyTheAnswer(selectedOption, correct_answer){
     console.log ("selected option "+ selectedOption);
     console.log("correct_answer " + correct_answer);
     if(selectedOption.text()==correct_answer){
-        $(selectedOption).css({"backgroundColor":"green"});
+        $(selectedOption).addClass("blink_me").css({"backgroundColor":"green"});
         selected= 1;
         wins++;
-        $("#wins").html("Wins " + wins);
+        $("#wins").html("Wins: " + wins);
         clearInterval(intervalId);
         console.log("selected "+ selected);
       
@@ -110,7 +110,7 @@ function verifyTheAnswer(selectedOption, correct_answer){
         selected =1;
         setTimeout(showCorrectAnswer(correct_answer),2000);
         losses++;
-        $("#losses").html("Losses " +losses);
+        $("#losses").html("Losses: " +losses);
         clearInterval(intervalId);
         console.log("selected "+ selected);
       
@@ -122,7 +122,7 @@ function verifyTheAnswer(selectedOption, correct_answer){
 }
 
 function showCorrectAnswer(object_correct_answer){
-    $(".answer:contains("+object_correct_answer+")").css({"backgroundColor":"green"});
+    $(".answer:contains("+object_correct_answer+")").addClass("blink_me").css({"backgroundColor":"green"});
 
 }
 
@@ -137,6 +137,10 @@ function resetAll(){
   if(i<10){
     el=getQuestion();
     createQuestionSection(el);
+  }
+  else{
+    $("#display").empty();
+    $(".question").text("GAME IS OVER!").css({"color":"#6495AB","font-family":"serif","font-weight":"bold","text-align":"center"});
   }
 
 

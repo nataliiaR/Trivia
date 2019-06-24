@@ -2,14 +2,14 @@
 <html>
     <head>
         <title>Trivia</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" chatset="utf-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/css/styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class="container-flex">
+        <div class="container-flex col-12">
         <header>
 
         </header>
@@ -23,8 +23,10 @@
                 <div class="row answers">
                 </div>
             </div>
-            <div id ="wins"></div>
-            <div id="losses"> </div>
+            <div class ="row" id="results">
+                <div class ="col-6" id ="wins">Wins: 0</div>
+                <div class= "col-6" id="losses"> Losses: 0</div>
+            </div>
         </section>
         </div>
         <script src="assets/js/data.json"></script>

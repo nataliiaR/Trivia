@@ -1,73 +1,122 @@
 jSONObj = [{
-    "question":"question 1",
-    "answers":["answer1", "answer2","answer3","answer4"],
-    "correct_answer":"answer3",
-    "timeInSeconds":10
-},
-{
-    "question":"question 2",
-    "answers":["answer21", "answer22","answer23","answer24"],
-    "correct_answer":"answer22",
-    "timeInSeconds":14
-},
-{
-    "question":"question 3",
-    "answers":["answer31", "answer32","answer33","answer34"],
-    "correct_answer":"answer31",
-    "timeInSeconds":15
-},
-{
-    "question":"question 4",
-    "answers":["answer41", "answer42","answer43","answer44"],
-    "correct_answer":"answer43",
-    "timeInSeconds":10
-},
-{
-    "question":"question 5",
-    "answers":["answer51", "answer52","answer53","answer54"],
-    "correct_answer":"answer52",
-    "timeInSeconds":14
-},
-{
-    "question":"question 6",
-    "answers":["answer61", "answer62","answer63","answer64"],
-    "correct_answer":"answer61",
-    "timeInSeconds":15
-},
-{
-    "question":"question 7",
-    "answers":["answer71", "answer72","answer73","answer74"],
-    "correct_answer":"answer73",
-    "timeInSeconds":10
-},
-{
-    "question":"question 8",
-    "answers":["answer81", "answer82","answer83","answer84"],
-    "correct_answer":"answer82",
-    "timeInSeconds":14
-},
-{
-    "question":"question 9",
-    "answers":["answer91", "answer92","answer93","answer94"],
-    "correct_answer":"answer91",
-    "timeInSeconds":15
-},
-{
-    "question":"question 10",
-    "answers":["answer101", "answer102","answer103","answer104"],
-    "correct_answer":"answer103",
-    "timeInSeconds":10
-},
-{
-    "question":"question 11",
-    "answers":["answer111", "answer112","answer113","answer114"],
-    "correct_answer":"answer112",
-    "timeInSeconds":14
-},
-{
-    "question":"question 12",
-    "answers":["answer121", "answer122","answer123","answer124"],
-    "correct_answer":"answer121",
-    "timeInSeconds":15
-}
+    "question": "The tallest mountain on Earth",
+    "answers": ["Cho Oyu", "Everest", "Annapurna", "Rainier"],
+    "correct_answer": "Everest",
+    "timeInSeconds": 10
+  },
+  {
+    "question": "What is the capital city of Cuba?",
+    "answers": ["Madrid", "Havana", "Puerto Rico", "Paris"],
+    "correct_answer": "Havana",
+    "timeInSeconds": 10
+  },
+  {
+    "question": "What is the closest planet to Earth?",
+    "answers": ["Jupiter", "Uran", "Mars", "Venus"],
+    "correct_answer": "Venus",
+    "timeInSeconds": 11
+  },
+  {
+    "question": "The biggest mammal in the world",
+    "answers": ["Blue Whale", "Crocodile", "Elephant", "Rhino"],
+    "correct_answer": "Blue Whale",
+    "timeInSeconds": 11
+  },
+  {
+    "question": "The title of rulers in ancient Egypt",
+    "answers": ["King", "Emperor", "Pharaoh", "Duke"],
+    "correct_answer": "Pharaoh",
+    "timeInSeconds": 10
+  },
+  {
+    "question": "How many meters in one kilometer?",
+    "answers": ["1,000", "10,000", "100", "5,280"],
+    "correct_answer": "1,000",
+    "timeInSeconds": 7
+  },
+  {
+    "question": "Which of these countries depicts Sun on the national flag?",
+    "answers": ["Japan", "Sweden", "Brazil", "Ukraine"],
+    "correct_answer": "Japan",
+    "timeInSeconds": 10
+  },
+  {
+    "question": "How many colonies formed the United States in 1776?",
+    "answers": ["9", "11", "13", "15"],
+    "correct_answer": "13",
+    "timeInSeconds": 8
+  },
+  {
+    "question": "Greenland, the biggest island in the world, is a part of this country",
+    "answers": ["Denmark", "Iceland", "Norway", "Canada"],
+    "correct_answer": "Denmark",
+    "timeInSeconds": 9
+  },
+  {
+    "question": "The Statue of Liberty was a gift from this country to the USA",
+    "answers": ["UK", "Spain", "Mexico", "France"],
+    "correct_answer": "France",
+    "timeInSeconds": 10
+  },
+  {
+    "question": "Count Dracula originated from Transylvania which is the part of this modern country",
+    "answers": ["Romania", "Poland", "Turkey", "Macedonia"],
+    "correct_answer": "Romania",
+    "timeInSeconds": 12
+  },
+  {
+    "question": "These birds are famous for having wingspans greater than 10 feet (3.3 m)",
+    "answers": ["Bald eagle", "Albatross", "White Owl", "Emu"],
+    "correct_answer": "Albatross",
+    "timeInSeconds": 10
+  },
+  {
+    "question": "Kiwi birds are native to ...",
+    "answers": ["Australia", "Austria", "New Zeland", "Argentina"],
+    "correct_answer": "New Zeland",
+    "timeInSeconds": 8
+  },
+  {
+    "question": "Currency used by Germany, Netherlands and France",
+    "answers": ["US Dollars", "Euro", "Mark", "Frank"],
+    "correct_answer": "Euro",
+    "timeInSeconds": 8
+  },
+  {
+    "question": "The biggest state of the USA by area",
+    "answers": ["Texas", "Montana", "California", "Alaska"],
+    "correct_answer": "Alaska",
+    "timeInSeconds": 10
+  },
+  {
+    "question": "The biggest state of the USA by population",
+    "answers": ["California", "New York", "Texas", "Florida"],
+    "correct_answer": "California",
+    "timeInSeconds": 10
+  },
+  {
+    "question": "The distance from Earth to the sun is called an ...",
+    "answers": ["Astronomical unit", "Astronomical mile", "Kilometer", "Nautical mile"],
+    "correct_answer": "Astronomical unit",
+    "timeInSeconds": 8
+  },
+  {
+    "question": "The first national park of the USA",
+    "answers": ["Mount Rainier", "Sequoia", "Yosemite", "Yellowstone"],
+    "correct_answer": "Yellowstone",
+    "timeInSeconds": 9
+  },
+  {
+    "question": "Haleakalā National Park is located in the state of ...",
+    "answers": ["New Mexico", "Hawaii", "California", "Arizona"],
+    "correct_answer": "Hawaii",
+    "timeInSeconds": 8
+  },
+  {
+    "question": "The largest known extant fish species is ...",
+    "answers": ["Whale shark", "Blue whale", "Orca", "Beluga sturgeon"],
+    "correct_answer": "Whale shark",
+    "timeInSeconds": 14
+  }
+  
 ];
