@@ -7,8 +7,14 @@ var losses = 0;
 const maxQuestions = 10;
 var questionCount = 1;
 
+$("section").hide();
 
-createQuestionSection(getQuestion());
+$("#start").on('click', function(){
+  $("section").show();
+  $("#startDiv").hide();
+  createQuestionSection(getQuestion());
+});
+
 
 function getQuestion(){
   var j = Math.floor((Math.random() * obj.length));
@@ -122,7 +128,7 @@ function resetAll(){
     } else{
       $(".question").text("GAME IS OVER!").css({"color":"#6495AB","font-family":"serif","font-weight":"bold","text-align":"center"});
     }
-    $(".answers").append("<button id='restart'> START AGAIN </button>");
+    $(".answers").append("<button id='restart' style='font-weight:bold'> START AGAIN!</button>");
     $("#restart").on('click', function(){
       restartGame();
     });

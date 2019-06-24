@@ -14,13 +14,13 @@
 
 }
 body{
-    background-image: url('../background.jpg');
+    background-image: url('../images/background.jpg');
 }
 
 header{
     background-position: center;
     width: 100%;
-    background-image: url('../quiz.png');
+    background-image: url('../images/quiz.png');
     background-size: 50%;
     background-repeat: no-repeat;
     height: 15em;
@@ -94,4 +94,20 @@ header{
     border-radius: 2em;
     color:white;
     margin:auto;
+    padding:1em;
+}
+
+#startDiv{
+    margin:4em;
+    text-align:center;
+}
+
+#start{
+    background-color:  #6495AB;
+    border-radius: 2em;
+    color:white;
+    padding: 1em;
+    font-size:2em;
+    border: 1px 1px 1px 1px #6495AB;
+    font-weight: bold;
 }
